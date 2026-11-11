@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SigV4.Core\SigV4.Core.csproj" />
+    <ProjectReference Include="..\SigV4.Experiments\SigV4.Experiments.csproj" />
+    <EmbeddedResource Include="report.css" />
+  </ItemGroup>
+</Project>

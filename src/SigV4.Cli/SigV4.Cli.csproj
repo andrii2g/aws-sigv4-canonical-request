@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>sigv4</AssemblyName>
+    <RootNamespace>SigV4.Cli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SigV4.Core/SigV4.Core.csproj" />
+    <ProjectReference Include="../SigV4.Experiments/SigV4.Experiments.csproj" />
+    <ProjectReference Include="../SigV4.Reporting/SigV4.Reporting.csproj" />
+    <EmbeddedResource Include="../../examples/aws-*.json" />
+  </ItemGroup>
+</Project>

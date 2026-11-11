@@ -18,6 +18,8 @@
     <Using Include="Xunit" />
     <ProjectReference Include="../../src/SigV4.Core/SigV4.Core.csproj" />
     <ProjectReference Include="../../src/SigV4.Experiments/SigV4.Experiments.csproj" />
+    <ProjectReference Include="../../src/SigV4.Reporting/SigV4.Reporting.csproj" />
+    <ProjectReference Include="../../src/SigV4.Cli/SigV4.Cli.csproj" />
     <EmbeddedResource Include="../../examples/aws-*.json" />
   </ItemGroup>
 

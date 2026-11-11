@@ -1,0 +1,18 @@
+{
+  "id": "custom-request",
+  "title": "Unicode paths, duplicate queries, and header whitespace",
+  "request": {
+    "path": "/reports//2026/café +%.txt",
+    "timestamp": "2013-05-24T00:00:00Z",
+    "region": "us-east-1",
+    "query": [
+      { "name": "tag", "value": "two words" },
+      { "name": "empty", "value": "" },
+      { "name": "tag", "value": "+" }
+    ],
+    "headers": [
+      { "name": "Host", "value": "examplebucket.s3.amazonaws.com" },
+      { "name": "X-Demo-Note", "value": "  alpha\t  beta  " }
+    ]
+  }
+}
