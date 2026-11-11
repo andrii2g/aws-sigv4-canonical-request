@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../SigV4.Core/SigV4.Core.csproj" />
+  </ItemGroup>
+</Project>

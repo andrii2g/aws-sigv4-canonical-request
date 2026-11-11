@@ -30,7 +30,23 @@ Presigned URLs, request bodies, temporary credentials, volatile transport header
 ## Structure
 
 - `src/SigV4.Core`: validated request model, S3 encoding, canonicalization, signing, and nonsecret trace.
+- `src/SigV4.Experiments`: controlled comparisons and deliberately faulty rules, isolated from the correct public signer.
 - `examples/aws-*.json`: frozen published vectors with expected intermediate values and provenance.
 - `tests/SigV4.Tests`: published-vector and edge-case regression tests.
 
-Controlled experiments, a CLI, and HTML explanations are the next implementation steps.
+## Controlled experiments
+
+`ExperimentCatalog.Run(id)` returns baseline and variant traces, the predicted result, and the first divergent signing stage. A successful experiment can intentionally produce different signatures: `Passed` means the observed outcome agrees with the prediction.
+
+| ID | Lesson | Expected signatures |
+| --- | --- | --- |
+| `query-order` | Sorting removes query input-order differences | Same |
+| `header-normalization` | Header-name casing and permitted whitespace normalize | Same |
+| `skip-query-sort` | A faulty signer preserves unsorted query input | Different |
+| `space-as-plus` | A faulty signer uses `+` instead of `%20` | Different |
+| `skip-header-normalization` | A faulty signer retains header whitespace | Different |
+| `request-tampering` | The actual signed object key changes | Different |
+
+Faulty rules only change the canonical representation through an internal entry point available to the experiment assembly. `S3RequestSigner.Sign` always uses the correct rules. The HTTP display represents the supplied request and generated Authorization header; faulty canonical fields deliberately disagree with that request.
+
+A CLI and HTML explanations are the next implementation step.
