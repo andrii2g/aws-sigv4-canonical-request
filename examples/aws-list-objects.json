@@ -1,0 +1,27 @@
+{
+  "id": "aws-list-objects",
+  "title": "AWS GET Bucket (List Objects)",
+  "sourceUrl": "https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sig-v4-header-based-auth.html",
+  "request": {
+    "method": "GET",
+    "path": "/",
+    "query": [
+      { "name": "max-keys", "value": "2" },
+      { "name": "prefix", "value": "J" }
+    ],
+    "headers": [
+      { "name": "Host", "value": "examplebucket.s3.amazonaws.com" }
+    ],
+    "timestamp": "2013-05-24T00:00:00Z",
+    "region": "us-east-1",
+    "service": "s3",
+    "credentialPreset": "aws-documentation"
+  },
+  "expected": {
+    "canonicalRequest": "GET\n/\nmax-keys=2&prefix=J\nhost:examplebucket.s3.amazonaws.com\nx-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\nx-amz-date:20130524T000000Z\n\nhost;x-amz-content-sha256;x-amz-date\ne3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "canonicalRequestHash": "df57d21db20da04d7fa30298dd4488ba3a2b47ca3a489c74750e0f1e7df1b9b7",
+    "credentialScope": "20130524/us-east-1/s3/aws4_request",
+    "stringToSign": "AWS4-HMAC-SHA256\n20130524T000000Z\n20130524/us-east-1/s3/aws4_request\ndf57d21db20da04d7fa30298dd4488ba3a2b47ca3a489c74750e0f1e7df1b9b7",
+    "signature": "34b48302e7b5fa45bde8084f4b7868a86f0a534bc59db6670ed5711ef69dc6f7"
+  }
+}

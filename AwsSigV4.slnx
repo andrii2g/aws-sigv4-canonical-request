@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SigV4.Core/SigV4.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SigV4.Tests/SigV4.Tests.csproj" />
+  </Folder>
+</Solution>
